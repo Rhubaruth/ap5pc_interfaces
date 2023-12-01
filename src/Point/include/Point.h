@@ -1,7 +1,7 @@
 #include <AbstractEuclideanPoint.h>
 #include <iostream>
 #include <cmath>
-class Point : public AbstractEuclideanPoint<Point> {
+class Point : public AbstractEuclideanPoint<Point, Vector> {
 
 public:
     float x, y;
@@ -12,8 +12,8 @@ public:
         return Point(x + other._x, y + other._y);
     }
 
-    Point subs(const Point &other) const override {
-        return Point(x - other.x, y - other.y);
+    Vector subs(const Point &other) const override {
+        return Vector(x - other.x, y - other.y);
     }
 
     //tuhle funkci jaksi potrebuju, protoze pokud chci distanci mezi Pointy... nemam tuhle funkci... a ja ji vynucuji a dedim z VectorScalarable
@@ -24,7 +24,7 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Point &other)
     {
-        os << other.x << " " << other.y;
+        os << "[" << other.x << " " << other.y << "]";
         return os;
     }
 

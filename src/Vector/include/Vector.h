@@ -43,7 +43,7 @@ Vector(float x, float y) {
     friend ostream &operator<<(ostream &os, const Vector &other)
     {
     
-        os << other._x << other._y << endl;
+        os << "(" << other._x << " " << other._y << ")";
         return os;
     }
 
